@@ -3,6 +3,7 @@ This repository provides tools for preprocessing videos for HDTF dataset used in
 
 # Environment Setup
 ```
+git clone https://github.com/theEricMa/OTAvatar_processing.git
 conda create --name otavatar_processing python=3.9
 ```
 
