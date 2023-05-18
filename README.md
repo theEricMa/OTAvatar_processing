@@ -3,7 +3,7 @@ This repository provides tools for preprocessing videos for HDTF dataset used in
 
 # Environment Setup
 ```
-conda env create --name otavatar_processing python=3.9
+conda create --name otavatar_processing python=3.9
 ```
 
 # Video Download
