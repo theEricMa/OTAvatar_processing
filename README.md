@@ -13,7 +13,7 @@ This section is adopted from [HDTF](https://github.com/MRzzm/HDTF)
 This seciton is adopated from [MODNet](https://github.com/ZHKKKe/MODNet)
 
 # Step 2: Video Cropping
-This section is adopted from [FOMM](https://github.com/AliaksandrSiarohin/video-preprocessing)
+This section is in the `FaceCrop` folder, adopted from [FOMM](https://github.com/AliaksandrSiarohin/video-preprocessing). The primary objective is to zoom in on the facial regions and discard any irrelevant background.
 
 # Step 3: Landmark Detection
 This section is adopted from [PIRenderer](https://github.com/RenYurui/PIRender)
