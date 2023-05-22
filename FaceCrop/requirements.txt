@@ -1,0 +1,8 @@
+scikit-image
+pandas
+face_alignment
+numpy
+imageio
+opencv-python
+shutil
+ffmpeg-python
