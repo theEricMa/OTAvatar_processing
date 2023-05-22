@@ -7,6 +7,7 @@ python crop_hdtf.py \
     --in_folder hdtf_matting_raw \
     --out_folder hdtf_matting \
     --increase 0.1
+rm -rf hdtf-metadata-1.csv
 
 python crop_hdtf.py \
     --workers 7 \
@@ -17,3 +18,4 @@ python crop_hdtf.py \
     --in_folder hdtf_matting_raw \
     --out_folder hdtf_matting \
     --increase 0.2
+rm -rf hdtf-metadata-2.csv
