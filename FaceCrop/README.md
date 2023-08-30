@@ -6,7 +6,7 @@ pip install -r requirements.txt
 ```
 
 ## Environment Debug
-Run the following script to check if your enviroment is setup perfectly.
+Run the following script to check if your environment is set up perfectly.
 ```
 sh scripts/debug.sh
 ```
