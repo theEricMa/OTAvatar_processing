@@ -65,10 +65,10 @@ def matting(video, result, alpha_matte=False, fps=30):
         matte_tensor = matte_tensor.repeat(1, 3, 1, 1)
         matte_np = matte_tensor[0].data.cpu().numpy().transpose(1, 2, 0)
         if alpha_matte:
-            # view_np = matte_np * np.full(frame_np.shape, 255.0)
-            view_np = matte_np * np.full(frame_np.shape, 0.)
+            view_np = matte_np * np.full(frame_np.shape, 255.0)
+            # view_np = matte_np * np.full(frame_np.shape, 0.)
         else:
-            view_np = matte_np * frame_np + (1 - matte_np) * np.full(frame_np.shape, 0.)
+            view_np = matte_np * frame_np + (1 - matte_np) * np.full(frame_np.shape, 255.)
         view_np = cv2.cvtColor(view_np.astype(np.uint8), cv2.COLOR_RGB2BGR)
         view_np = cv2.resize(view_np, (w, h))
         video_writer.write(view_np)
