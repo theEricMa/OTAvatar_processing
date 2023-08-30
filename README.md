@@ -16,13 +16,13 @@ This section is in the `BgRemoval` folder, derived from [MODNet](https://github.
 This section is in the `FaceCrop` folder, adopted from [FOMM](https://github.com/AliaksandrSiarohin/video-preprocessing). The primary objective is to zoom in on the facial regions and discard any irrelevant background.
 
 # Step 3: Landmark Detection
+This section is adopted from [Deep3DFaceRecon](https://github.com/sicxu/Deep3DFaceRecon_pytorch)
+
+# Step 4: 3DMM Extraction
+## Step 4-1: Coarse Stage
 This section is adopted from [PIRenderer](https://github.com/RenYurui/PIRender)
 
-# 3DMM Extraction
-## Step 4: Coarse Stage
-This section is adopted from [PIRenderer](https://github.com/RenYurui/PIRender)
-
-## Step 5: Fine Stage
+## Step 4-2: Fine Stage
 This section is adopted from [ADNeRF](https://github.com/YudongGuo/AD-NeRF)
 
 # Q&A
