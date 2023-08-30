@@ -10,7 +10,7 @@ conda create --name otavatar_processing python=3.9
 This section is adopted from [HDTF](https://github.com/MRzzm/HDTF)
 
 # Step 1: Background Removal
-This section is in the `BgRemoval` folder, derived from [MODNet](https://github.com/ZHKKKe/MODNet). Its purpose is to remove the background from the source video.
+This section is in the `BgRemove` folder, derived from [MODNet](https://github.com/ZHKKKe/MODNet). Its purpose is to remove the background from the source video.
 
 # Step 2: Video Cropping
 This section is in the `FaceCrop` folder, adopted from [FOMM](https://github.com/AliaksandrSiarohin/video-preprocessing). The primary objective is to zoom in on the facial regions and discard any irrelevant background.
