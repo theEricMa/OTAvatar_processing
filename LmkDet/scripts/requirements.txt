@@ -1,5 +1,0 @@
-scikit-image
-face_alignment
-numpy
-imageio
-opencv-python
