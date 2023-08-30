@@ -25,6 +25,9 @@ This section is adopted from [PIRenderer](https://github.com/RenYurui/PIRender)
 ## Step 4-2: Fine Stage
 This section is adopted from [ADNeRF](https://github.com/YudongGuo/AD-NeRF)
 
+# Step 5: Dataset compression
+This section is adopted from [PIRenderer](https://github.com/RenYurui/PIRender)
+
 # Q&A
 ### Why the Background Removal is performed on the uncropped videos?
 During our attempt to remove the background from uncropped videos, we observed that the matting results were unstable between frames. This was due to the fact that the model was trained on images where the head only occupied a small portion of the entire image, which is precisely what is captured in raw video. As a result, we decided to first remove the background and then crop the face, which led to more encouraging results.
