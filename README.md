@@ -18,11 +18,11 @@ This section is in the `FaceCrop` folder, adopted from [FOMM](https://github.com
 # Step 3: Landmark Detection
 This section is adopted from [Deep3DFaceRecon](https://github.com/sicxu/Deep3DFaceRecon_pytorch)
 
-# 3DMM Extraction
-## Step 4: Coarse Stage
+# Step 4: 3DMM Extraction
+## Step 4-1: Coarse Stage
 This section is adopted from [PIRenderer](https://github.com/RenYurui/PIRender)
 
-## Step 5: Fine Stage
+## Step 4-2: Fine Stage
 This section is adopted from [ADNeRF](https://github.com/YudongGuo/AD-NeRF)
 
 # Q&A
