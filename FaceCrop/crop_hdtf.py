@@ -15,29 +15,6 @@ from util import bb_intersection_over_union, join, scheduler, crop_bbox_from_fra
 
 warnings.filterwarnings("ignore")
 
-TEST_PERSONS = [
-    'WDA_CatherineCortezMasto_000',
-    'WDA_MartinHeinrich_000',
-    'WDA_MikeDoyle_000',
-    'WRA_DeanHeller_000',
-    'WRA_EricCantor_000',
-    'WRA_ErikPaulsen_000',
-    'WRA_GeoffDavis_000',
-    'WRA_JoePitts_000',
-    'WRA_JohnThune_000',
-    'WRA_OlympiaSnowe_000',
-    'WRA_ReincePriebus_000',
-    'WRA_ReneeEllmers_000',
-    'WRA_RichardShelby_000',
-    'WRA_RobPortman_000',
-    'WRA_RoyBlunt_000',
-    'WRA_TimScott_000',
-    'WRA_ToddYoung_000',
-    'WRA_TomCotton_000',
-    'WRA_TomPrice_000',
-    'WRA_VickyHartzler_000'
-    ]
-
 def extract_bbox(frame, fa):
     return fa.face_detector.detect_from_image(frame[..., ::-1])[0]
     # mult = frame.shape[0] / REF_FRAME_SIZE
@@ -46,7 +23,7 @@ def extract_bbox(frame, fa):
     # return bbox
 
 
-def store(frame_list, tube_bbox, video_id, args):
+def store(frame_list, tube_bbox, video_id, args, partition):
     out, final_bbox = crop_bbox_from_frames(frame_list, tube_bbox, min_frames=0,
                                             image_shape=args.image_shape, min_size=0, 
                                             increase_area=args.increase)
@@ -54,7 +31,6 @@ def store(frame_list, tube_bbox, video_id, args):
         return []
 
     name = video_id
-    partition = 'test' if any([person in name for person in TEST_PERSONS]) else 'train'
     save(os.path.join(args.out_folder, partition, name), out, args.format)
 
 def process_video(video_path, args):
@@ -72,7 +48,7 @@ def process_video(video_path, args):
             except:
                 return {}
         frame_list.append(frame)
-    return store(frame_list, tube_bbox, video_id, args)
+    return store(frame_list, tube_bbox, video_id, args, partition='train' if 'train' in video_path else 'test')
 
 def run(params):
     video_id, device_id, args = params
@@ -106,6 +82,5 @@ if __name__ == "__main__":
             sorted([os.path.join(args.in_folder + '/test', f) for f in os.listdir(args.in_folder + '/test')])
         )
 
-    ids = [f for f in ids if 'test' in f]
 
     scheduler(ids, run, args)

@@ -184,6 +184,12 @@ def save(path, frames, format, audio = None):
     if format == '.mp4':
         if not path.endswith('.mp4'):
             path = path + '.mp4'
+
+        # if the directory does not exist, create it
+        save_dir = os.path.dirname(path)
+        if not os.path.exists(save_dir):
+            os.makedirs(save_dir)
+
         imageio.mimsave(path, frames, fps = 25)
         # special operation with the audio
         video = ffmpeg.input(path)
