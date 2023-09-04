@@ -6,8 +6,18 @@ We are still refining the environment setup at the moment. Please refer to the R
 ```
 conda create --name otavatar_processing python=3.9
 ```
-# Step 0: Video Download
-This section is adopted from [HDTF](https://github.com/MRzzm/HDTF)
+# Step 0: Video Splitting
+Generally, the video is suggested in the following format. 
+```
+<your_dataset_name>
+├── <your_video_split>
+│  ├── train
+│  │  ├── <video_1.mp4>
+│  │  ├── ...
+│  ├── test
+│  │  ├── <video_1.mp4>
+│  │  ├── ...
+```
 
 # Step 1: Background Removal
 This section is in the `BgRemove` folder, derived from [MODNet](https://github.com/ZHKKKe/MODNet). Its purpose is to remove the background from the source video.
