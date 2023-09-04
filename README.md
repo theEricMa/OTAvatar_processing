@@ -6,11 +6,11 @@ We are still refining the environment setup at the moment. Please refer to the R
 ```
 conda create --name otavatar_processing python=3.9
 ```
-# Step 0: Video Splitting
-Generally, the video is suggested in the following format. 
+# Step 0: Split Videos
+Generally, the video is suggested in the following format: 
 ```
 <your_dataset_name>
-├── <your_video_split>
+├── <video_split>
 │  ├── train
 │  │  ├── <video_1.mp4>
 │  │  ├── ...
@@ -19,11 +19,34 @@ Generally, the video is suggested in the following format.
 │  │  ├── ...
 ```
 
-# Step 1: Background Removal
-This section is in the `BgRemove` folder, derived from [MODNet](https://github.com/ZHKKKe/MODNet). Its purpose is to remove the background from the source video.
+# Step 1: Remove Background
+This section resides in the in the `BgRemove` folder, which is based on [MODNet](https://github.com/ZHKKKe/MODNet). Its primary function is to eliminate the background from the input video. The process will create the subsequent subdirectory:
+```
+<your_dataset_name>
+├── <video_split>
+├── <video_matting_raw>
+│  ├── train
+│  │  ├── <video_1.mp4>
+│  │  ├── ...
+│  ├── test
+│  │  ├── <video_1.mp4>
+│  │  ├── ...
+```
 
 # Step 2: Video Cropping
-This section is in the `FaceCrop` folder, adopted from [FOMM](https://github.com/AliaksandrSiarohin/video-preprocessing). The primary objective is to zoom in on the facial regions and discard any irrelevant background.
+The following section is found within the `FaceCrop` folder, which was adapted from the[FOMM](https://github.com/AliaksandrSiarohin/video-preprocessing). Its main purpose is to focus on the facial areas of the video and eliminate any unnecessary background. This procedure will result in the creation of a new subdirectory:
+```
+<your_dataset_name>
+├── <video_split>
+├── <video_matting_raw>
+├── <video_matting>
+│  ├── train
+│  │  ├── <video_1.mp4>
+│  │  ├── ...
+│  ├── test
+│  │  ├── <video_1.mp4>
+│  │  ├── ...
+```
 
 # Step 3: Landmark Detection
 This section is in the `LmkDet`, adopted from [Deep3DFaceRecon](https://github.com/sicxu/Deep3DFaceRecon_pytorch). It is for detecting facial landmarks in cropped videos, which is a crucial step for extracting 3DMM coefficients in the subsequent section.
