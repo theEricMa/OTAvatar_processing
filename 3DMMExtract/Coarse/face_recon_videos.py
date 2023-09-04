@@ -163,7 +163,9 @@ def main(opt, model):
         warping_params = data['warping'][0].cpu().numpy()
         pred_trans_params = data['trans_param'][0].cpu().numpy()
         name[-1] = os.path.splitext(name[-1])[0] + '.mat'
+        
         os.makedirs(os.path.join(opt.output_dir, name[-2]), exist_ok=True)
+        save_path = os.path.join(opt.output_dir, name[-2], name[-1])
         savemat(
             save_path, 
             {'coeff':pred_coeffs, 'transform_params':pred_trans_params, 'warping_params': warping_params}
