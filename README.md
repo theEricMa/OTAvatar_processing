@@ -1,11 +1,23 @@
 # OTAvatar_processing
 This repository provides tools for preprocessing videos for HDTF dataset used in the [paper](https://github.com/theEricMa/OTAvatar)
 
-# Environment Setup
-We are still refining the environment setup at the moment. Please refer to the README file in each subdirectory for guidance. Once we finalize everything, we will gather all the necessary requirements into a requirements.txt file located in the root directory. You can create a conda enviroment first via
+# Installation
+## Environment setup
+1. Set up a conda environment with all dependencies as follows:
 ```
+git clone https://github.com/theEricMa/OTAvatar_processing.git
+cd OTAvatar_processing
 conda create --name otavatar_processing python=3.9
+conda activate otavatar_processing
 ```
+2. Install pytorch3d library
+```
+git clone https://github.com/facebookresearch/pytorch3d.git
+cd pytorch3d && pip install -e . && cd ..
+```
+## Prepare prerequisite models
+
+
 # Step 0: Split Videos
 Generally, the video is suggested in the following format: 
 ```
