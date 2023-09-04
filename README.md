@@ -33,7 +33,7 @@ This section resides in the in the `BgRemove` folder, which is based on [MODNet]
 │  │  ├── ...
 ```
 
-# Step 2: Video Cropping
+# Step 2: Crop Videos
 The following section is found within the `FaceCrop` folder, which was adapted from the[FOMM](https://github.com/AliaksandrSiarohin/video-preprocessing). Its main purpose is to focus on the facial areas of the video and eliminate any unnecessary background. This procedure will result in the creation of a new subdirectory:
 ```
 <your_dataset_name>
@@ -48,8 +48,8 @@ The following section is found within the `FaceCrop` folder, which was adapted f
 │  │  ├── ...
 ```
 
-# Step 3: Landmark Detection
-The following segment in `LmkDet`, is derived from [Deep3DFaceRecon](https://github.com/sicxu/Deep3DFaceRecon_pytorch). This section is for detecting facial landmarks in trimmed videos, an essential step for obtaining 3DMM coefficients in the following section. This procedure will generate the next subdirectory.
+# Step 3: Detect Landmarks
+The following segment in `LmkDet`, is derived from [Deep3DFaceRecon](https://github.com/sicxu/Deep3DFaceRecon_pytorch). This section is for detecting facial landmarks in trimmed videos, an essential step for obtaining 3DMM coefficients in the following section. This procedure will generate the next subdirectory:
 ```
 <your_dataset_name>
 ├── <video_split>
@@ -64,9 +64,9 @@ The following segment in `LmkDet`, is derived from [Deep3DFaceRecon](https://git
 │  │  ├── ...
 ```
 
-# Step 4: 3DMM Extraction
+# Step 4: Extract 3DMM
 ## Step 4-1: Coarse Stage
-This section, located in `3DMMExtract/Coarse`, is based on [PIRenderer](https://github.com/RenYurui/PIRender). It's designed to extract the 3D Morphable Model Coefficients, such as expression and pose, from monocular videos. This module is in line with other models that use 3DMM for talking face generation. This procedure will result in the creation of a new subdirectory.
+This section, located in `3DMMExtract/Coarse`, is based on [PIRenderer](https://github.com/RenYurui/PIRender). It's designed to extract the 3D Morphable Model Coefficients, such as expression and pose, from monocular videos. This module is in line with other models that use 3DMM for talking face generation. This procedure will result in the creation of a new subdirectory:
 ```
 <your_dataset_name>
 ├── <video_split>
@@ -83,7 +83,7 @@ This section, located in `3DMMExtract/Coarse`, is based on [PIRenderer](https://
 ```
 
 ## Step 4-2: Fine Stage
-This section is found under  `3DMMExtract/Fine`. The insight of this step is that learning-based methods, like the previously mentioned Coarse Stage, struggle to deliver stable camera poses required for rendering. However, the [ADNeRF](https://github.com/YudongGuo/AD-NeRF) approach suggests utilizing an optimization-based method, which significantly enhances the stability of the camera pose and improves the animation. The trade-off is that this method can be time-intensive. For example, processing a video comprised of numerous sections may take up to an hour. This procedure will result in the creation of a new subdirectory. This process will lead to the creation of two new subdirectories.
+This section is found under  `3DMMExtract/Fine`. The insight of this step is that learning-based methods, like the previously mentioned Coarse Stage, struggle to deliver stable camera poses required for rendering. However, the [ADNeRF](https://github.com/YudongGuo/AD-NeRF) approach suggests utilizing an optimization-based method, which significantly enhances the stability of the camera pose and improves the animation. The trade-off is that this method can be time-intensive. For example, processing a video comprised of numerous sections may take up to an hour. This procedure will result in the creation of a new subdirectory. This process will lead to the creation of two new subdirectories:
 ```
 <your_dataset_name>
 ├── <video_split>
@@ -107,8 +107,8 @@ This section is found under  `3DMMExtract/Fine`. The insight of this step is tha
 │  │  ├── ...
 ```
 
-# Step 5: Dataset compression
-This segment in `LmdbPrepare`, is derived from [PIRenderer](https://github.com/RenYurui/PIRender). It employs an Lmdb compressed file format to significantly reduce I/O time and accelerate the training process.
+# Step 5: Compress Dataset
+The following portion in `LmdbPrepare` is adapted from [PIRenderer](https://github.com/RenYurui/PIRender). It employs an Lmdb compressed file format to significantly reduce I/O time and accelerate the training process. This procedure will result in the creation of a new subdirectory:
 ```
 <your_dataset_name>
 ├── <video_split>
