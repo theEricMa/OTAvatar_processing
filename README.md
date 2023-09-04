@@ -1,6 +1,8 @@
 # OTAvatar_processing
 This repository provides tools for preprocessing videos for HDTF dataset used in the [paper](https://github.com/theEricMa/OTAvatar)
 
+This repository offers a set of tools designed to pre-process videos for the HDTF dataset, which is featured in the associated research paper.
+
 # Installation
 ## Environment setup
 1. Set up a conda environment with all dependencies as follows:
