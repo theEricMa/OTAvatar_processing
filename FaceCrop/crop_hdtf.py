@@ -34,7 +34,7 @@ def store(frame_list, tube_bbox, video_id, args, partition):
     save(os.path.join(args.out_folder, partition, name), out, args.format)
 
 def process_video(video_path, args):
-    fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, flip_input=False)
+    fa = face_alignment.FaceAlignment(face_alignment.LandmarksType.TWO_D, flip_input=False)
     video_id = os.path.splitext(os.path.split(video_path)[-1])[0]
     reader = imageio.get_reader(video_path)
     tube_bbox = None
