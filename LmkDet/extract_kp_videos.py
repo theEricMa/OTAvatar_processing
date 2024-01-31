@@ -13,7 +13,7 @@ from torch.multiprocessing import Pool, Process, set_start_method
 
 class KeypointExtractor():
     def __init__(self):
-        self.detector = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D)   
+        self.detector = face_alignment.FaceAlignment(face_alignment.LandmarksType.TWO_D)
 
     def extract_keypoint(self, images, name = None):
         # escape overlapped processing
@@ -89,9 +89,9 @@ if __name__ == '__main__':
     VIDEO_EXTENSIONS = VIDEO_EXTENSIONS_LOWERCASE.union({f.upper() for f in VIDEO_EXTENSIONS_LOWERCASE})
     extensions = VIDEO_EXTENSIONS
     for ext in extensions:
-        filenames = sorted(glob.glob(f'{opt.input_dir}/**/*.{ext}'))
-        filenames = sorted(glob.glob(f'{opt.input_dir}/**/*.{ext}'))
-        filenames = sorted(glob.glob(f'{opt.input_dir}/**/*.{ext}'))
+        filenames += sorted(glob.glob(f'{opt.input_dir}/**/*.{ext}'))
+        #filenames = sorted(glob.glob(f'{opt.input_dir}/**/*.{ext}'))
+        #filenames = sorted(glob.glob(f'{opt.input_dir}/**/*.{ext}'))
 
     # filenames = [f for f in filenames if 'test' in f]
     # filenames = [f for f in filenames if 'WRA_VickyHartzler_000' in f]

@@ -76,7 +76,23 @@ def transferBFM09(bfm_folder='BFM'):
     savemat(osp.join(bfm_folder, 'BFM_model_front.mat'), {'meanshape': meanshape, 'meantex': meantex, 'idBase': idBase, 'exBase': exBase, 'texBase': texBase,
             'tri': tri, 'point_buf': point_buf, 'tri_mask2': tri_mask2, 'keypoints': keypoints, 'frontmask2_idx': frontmask2_idx, 'skinmask': skinmask})
 
+def LoadExpBasis():
+	n_vertex = 53215
+	Expbin = open('BFM/Exp_Pca.bin','rb')
+	exp_dim = array('i')
+	exp_dim.fromfile(Expbin,1)
+	expMU = array('f')
+	expPC = array('f')
+	expMU.fromfile(Expbin,3*n_vertex)
+	expPC.fromfile(Expbin,3*exp_dim[0]*n_vertex)
 
+	expPC = np.array(expPC)
+	expPC = np.reshape(expPC,[exp_dim[0],-1])
+	expPC = np.transpose(expPC)
+
+	expEV = np.loadtxt('BFM/std_exp.txt')
+
+	return expPC,expEV
 
 # load landmarks for standard face, which is used for image preprocessing
 def load_lm3d(bfm_folder):
